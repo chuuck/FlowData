@@ -1,8 +1,12 @@
 <template>
 
+    
     <!-- Table where the response from Codex is displayed -->
     <div id = "table_box">
-        <table class="table">
+
+    <button id = "download_button" type="button" class="btn btn-info" @click="dowload_action">Download</button>
+
+        <table id="response_table" class="table">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -41,6 +45,12 @@ export default {
   name: 'ResponseTable',
   props: {
     msg: String
+  },
+  methods: {
+    dowload_action(){
+      console.log("Downloading table as CSV")
+    }
+
   }
 }
 </script>
@@ -60,5 +70,19 @@ export default {
 
   
 }
+
+#download_button{
+
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+
+}
+
+#response_table{
+  margin-top:1vw;
+
+}
+
 
 </style>
