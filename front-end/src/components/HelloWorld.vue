@@ -4,7 +4,7 @@
       <h1 id="title">QData</h1>
       <p id="description_text">Whether you're a data scientist, business analyst, or just someone looking to extract insights from your data, QData allows you to ask questions to your data.</p>
       <div id="file_upload_area">
-        <input class="form-control" type="file" id="formFileMultiple" multiple>
+        <input name="data_file" class="form-control" type="file" id="formFileMultiple" ref="uploaded_files" multiple @change="onFileChange">
       </div>
     </div>
 
@@ -15,6 +15,17 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data(){
+    return{
+      files: [],
+    }
+  },
+  methods:{
+    onFileChange(){
+      
+      this.$emit('fileChanged', this.$refs.uploaded_files.files)
+    }
   }
 }
 </script>

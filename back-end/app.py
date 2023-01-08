@@ -20,6 +20,18 @@ def ping_pong():
     print (data)
     return jsonify(data)
 
+# getting csv file from front-end
+@app.route('/csvuploader', methods=['GET', 'POST'])
+def csv_uploader():
+    file = request.files['file']
+    if not file:
+        return "No file"
+    else:
+        print ("asdasd")
+        return "Success"
+    return jsonify(data)
+
+
 
 if __name__ == '__main__':
     app.run()

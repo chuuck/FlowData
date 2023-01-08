@@ -2,7 +2,7 @@
   
   <div id = "center_layout">
   
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld @change="fileChanged" msg="Welcome to Your Vue.js App"/>
     <InputPrompt @submitPrompt="onClickChild"/>
     <SQLAccordion/>
     <ResponseTable/>
@@ -22,22 +22,32 @@ export default {
   components: {
     HelloWorld, InputPrompt, SQLAccordion, ResponseTable
   },
+  data(){
+    return{
+      files: [],
+    }
+  },
   methods: {
       onClickChild (value) {
+        
+        console.log(value);
+        
+        let formData = new FormData();
+        formData.append('file', this.files);
 
-        /*
-        console.log(value)
-        const path = 'http://127.0.0.1:5000/ping';
-        axios.get(path)
-          .then((res) => {
-            console.log(res.data);
-            this.msg = res.data;
-          })
-          .catch((error) => {
-            // eslint-disable-next-line
-            console.error(error);
-          });*/
+        axios.post('http://127.0.0.1:5000/csvuploader',
+          formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+        }).then((response) => {
+          console.log(response);
+        }, (error) => {
+          console.log(error);
+        });
 
+
+        /* Posting a string
         axios.post('http://127.0.0.1:5000/ping', {
           firstName: value,
           lastName: 'Williams'
@@ -46,8 +56,15 @@ export default {
           console.log(response);
         }, (error) => {
           console.log(error);
-        });
+        });*/
+
+      },
+
+      fileChanged(uploaded_files){
+        this.files = uploaded_files
+        
       }
+ 
   }
 }
 </script>
