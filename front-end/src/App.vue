@@ -5,7 +5,7 @@
     <HelloWorld @change="fileChanged" msg="Welcome to Your Vue.js App"/>
     <InputPrompt @submitPrompt="onClickChild"/>
     <SQLAccordion/>
-    <ResponseTable/>
+    <ResponseTable :people="people" :columns="columns"/>
 
   </div>
 </template>
@@ -24,28 +24,42 @@ export default {
   },
   data(){
     return{
-      files: [],
+      files: '',
+
+      columns: ['name', 'age', 'address'],
+
+      people: [['John Doe', 30, '123 Main St' ],
+              [ 'Jane Smith', 105, '456 Park Ave' ],
+              [ 'Bob Johnson', 35, '789 Elm St' ]],
+
+
+      // people: [{ 'name': 'John Doe', 'age': 30, 'address': '123 Main St' },
+      //         { 'name': 'Jane Smith', 'age': 105, 'address': '456 Park Ave' },
+      //         { 'name': 'Bob Johnson', 'age': 35, 'address': '789 Elm St' }],
     }
   },
   methods: {
-      onClickChild (value) {
-        
-        console.log(value);
+      onClickChild () {
         
         let formData = new FormData();
-        formData.append('file', this.files);
-
-        axios.post('http://127.0.0.1:5000/csvuploader',
+        formData.append("file", this.files);
+        
+        axios.post('http://127.0.0.1:8000/upload-csv-test',
           formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }
         }).then((response) => {
-          console.log(response);
+          
+          this.columns = Object.keys(response.data[0])
+          this.people = response.data
+          console.log(response)
+        
+          
         }, (error) => {
           console.log(error);
         });
-
+        
 
         /* Posting a string
         axios.post('http://127.0.0.1:5000/ping', {
@@ -61,7 +75,9 @@ export default {
       },
 
       fileChanged(uploaded_files){
-        this.files = uploaded_files
+
+        this.files = uploaded_files.target.files[0]
+        
         
       }
  

@@ -11,6 +11,7 @@
     "@popperjs/core": "^2.11.6",
     "axios": "^1.2.1",
     "bootstrap": "^5.2.3",
+    "bootstrap-table": "^1.21.2",
     "core-js": "^3.8.3",
     "vue": "^3.2.13"
   },

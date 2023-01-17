@@ -2105,6 +2105,11 @@ boolbase@^1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==
 
+bootstrap-table@^1.21.2:
+  version "1.21.2"
+  resolved "https://registry.yarnpkg.com/bootstrap-table/-/bootstrap-table-1.21.2.tgz#35472abd687840068d1c55b8d656117b6c6170e8"
+  integrity sha512-VVXiVI19PwR0Taq0N9jOaNCBnxIKsfnlcdaK8/jJBmK23cqor9NhtqH8MJ/UysSEt1sFv+p8yi1DZWHadtVdoQ==
+
 bootstrap@^5.2.3:
   version "5.2.3"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.2.3.tgz#54739f4414de121b9785c5da3c87b37ff008322b"
