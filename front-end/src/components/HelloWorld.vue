@@ -25,7 +25,8 @@ export default {
     onFileChange(){
       
       this.$emit('fileChanged', this.$refs.uploaded_files.files[0])
-    }
+    },
+
   }
 }
 </script>

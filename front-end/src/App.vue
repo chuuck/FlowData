@@ -3,7 +3,7 @@
   <div id = "center_layout">
   
     <HelloWorld @change="fileChanged" msg="Welcome to Your Vue.js App"/>
-    <InputPrompt @submitPrompt="onClickChild"/>
+    <InputPrompt @submitPrompt="update_prompt"/>
     <SQLAccordion/>
     <ResponseTable :people="people" :columns="columns"/>
 
@@ -32,17 +32,15 @@ export default {
               [ 'Jane Smith', 105, '456 Park Ave' ],
               [ 'Bob Johnson', 35, '789 Elm St' ]],
 
-
-      // people: [{ 'name': 'John Doe', 'age': 30, 'address': '123 Main St' },
-      //         { 'name': 'Jane Smith', 'age': 105, 'address': '456 Park Ave' },
-      //         { 'name': 'Bob Johnson', 'age': 35, 'address': '789 Elm St' }],
+      prompt: ''
     }
   },
   methods: {
       onClickChild () {
-        
-        let formData = new FormData();
-        formData.append("file", this.files);
+      
+        let formData = new FormData()
+        formData.append("file", this.files)
+        formData.append("prompt", this.prompt)
         
         axios.post('http://127.0.0.1:8000/upload-csv-test',
           formData, {
@@ -79,6 +77,11 @@ export default {
         this.files = uploaded_files.target.files[0]
         
         
+      },
+
+      update_prompt(prompt){
+        this.prompt = prompt;
+        this.onClickChild();
       }
  
   }

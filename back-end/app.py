@@ -30,6 +30,10 @@ def ping_pong():
 def upload_csv():
     print("receiving")
     file = request.files["file"]
+    prompt = request.form["prompt"]
+    
+    print (f"This is the prompt: {prompt}")
+
     df = pd.read_csv(BytesIO(request.files['file'].read()))
 
     task = "Sort out all data by descending order using store sales."

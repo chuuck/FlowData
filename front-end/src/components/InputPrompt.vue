@@ -17,6 +17,7 @@ export default {
   },
   methods: {
     submit_prompt(){
+      console.log(this.prompt_value)
       this.$emit('submitPrompt', this.prompt_value)
     }
   },
