@@ -60,10 +60,8 @@ export default {
 }
 
 #download_button{
-
-  display: block;
-  margin-left: auto;
-  margin-right: 0;
+  
+  margin-left: 100%;
 
 }
 
