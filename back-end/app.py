@@ -18,6 +18,8 @@ app.config.from_object(__name__)
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
 
+# Dictionary of all tables storing the name of table and pandas dataframe
+table_dict = {}
 
 # sanity check route
 @app.route('/ping', methods=['GET', 'POST'])
@@ -35,53 +37,51 @@ def upload_csv():
 
     for data_file in file_list:
         df = pd.read_csv(BytesIO(data_file.read()))
-        print (df)
+        table_dict[data_file.filename.replace(".csv", "")] = df
+
 
     prompt = request.form["prompt"]
     
-    print (f"This is the prompt: {prompt}")
+    #print (f"This is the prompt: {prompt}")
 
-    task = "Sort out all data by descending order using store sales."
-    prompt = creates_message(list(df.columns), task)
+    openai_prompt = create_message(prompt)
+    print (openai_prompt)
 
-    openai_response = api_request(prompt)
+    openai_response = api_request(openai_prompt)
     retrieved_query = "SELECT" + openai_response["choices"][0]["text"]
 
     queried_table = ps.sqldf("SELECT * FROM df ORDER BY Store_Sales DESC")
 
-    print (queried_table.to_json(orient="records"))
+    #print (queried_table.to_json(orient="records"))
 
     response = {
         "table": queried_table.to_json(orient="records"),
         "query": retrieved_query
     }
-    if file:
-        return response
-    else:
-        return "No file found"
 
-def get_table_name(file_name):
-    return 
+    return (response)
 
 
 
 # Function that creates an API message
-def creates_message(columns, task) -> str:
+def create_message(task) -> str:
 
     message = "### SQL Tables, with their properties:\n#\n"
 
-    column_properties = "("
+    for key in table_dict:
 
-    for idx, column in enumerate(columns):
-        
-        if (idx + 1 == len(columns)):
-            column_properties += column
-        else:
-            column_properties += column + ", "
+        column_properties = "("
 
-    table_name = "# " + "Stores" + column_properties + ")\n"
+        for idx, column in enumerate(table_dict[key].columns):
+            
+            if (idx + 1 == len(table_dict[key].columns)):
+                column_properties += column
+            else:
+                column_properties += column + ", "
 
-    message += table_name + "#\n### " + task + "\nSELECT"
+        message += "# " + str(key) + column_properties + ")\n"
+
+    message += "#\n# " + task + "\nSELECT"
 
     return (message)
 
