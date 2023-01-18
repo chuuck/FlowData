@@ -1,10 +1,12 @@
 <template>
 
     <div class="input-group mb-3" id="prompt_form">
-      <input id="prompt_input" type="text" class="form-control" placeholder="Enter your prompt..." aria-label="Recipient's username" aria-describedby="basic-addon2" v-model="prompt_value">
-      <div class="input-group-append" id = "prompt_start_button">
-          <button class="btn btn-outline-secondary" type="button" @click="submit_prompt">Go</button>
-      </div>
+
+
+      <input id="prompt_input" type="text" class="form-control" placeholder="Enter your prompt..." 
+      aria-label="Recipient's username" aria-describedby="basic-addon2" v-model="prompt_value">
+
+      <button class="btn btn-outline-secondary" type="button" @click="submit_prompt">Go</button>
     </div>
 
 </template>
@@ -44,6 +46,12 @@ export default {
 #prompt_start_button{
 
   
+}
+
+
+#dropdown_prompt{
+
+
 }
 
 </style>

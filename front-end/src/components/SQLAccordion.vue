@@ -9,7 +9,7 @@
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-                <code>SELECT * FROM CUSTOMER</code>
+                <code>{{query}}</code>
 
             </div>
             </div>
@@ -21,6 +21,7 @@
 export default {
   name: 'SQLAccordion',
   props: {
+      query: String,
   }
 }
 </script>

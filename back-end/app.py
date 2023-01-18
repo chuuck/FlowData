@@ -46,8 +46,12 @@ def upload_csv():
 
     print (queried_table.to_json(orient="records"))
 
+    response = {
+        "table": queried_table.to_json(orient="records"),
+        "query": retrieved_query
+    }
     if file:
-        return (queried_table.to_json(orient="records"))
+        return response
     else:
         return "No file found"
 

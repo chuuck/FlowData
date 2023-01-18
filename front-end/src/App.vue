@@ -4,7 +4,7 @@
   
     <HelloWorld @change="fileChanged" msg="Welcome to Your Vue.js App"/>
     <InputPrompt @submitPrompt="update_prompt"/>
-    <SQLAccordion/>
+    <SQLAccordion :query="query"/>
     <ResponseTable :people="people" :columns="columns"/>
 
   </div>
@@ -32,7 +32,9 @@ export default {
               [ 'Jane Smith', 105, '456 Park Ave' ],
               [ 'Bob Johnson', 35, '789 Elm St' ]],
 
-      prompt: ''
+      prompt: '',
+
+      query: 'EMPTY'
     }
   },
   methods: {
@@ -48,11 +50,12 @@ export default {
               'Content-Type': 'multipart/form-data'
             }
         }).then((response) => {
+
+          this.query = response.data["query"]
+          let table_object = JSON.parse(response.data["table"]);
+          this.columns = Object.keys(table_object[0])
+          this.people = table_object
           
-          this.columns = Object.keys(response.data[0])
-          this.people = response.data
-          console.log(response)
-        
           
         }, (error) => {
           console.log(error);
