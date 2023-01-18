@@ -6,6 +6,7 @@ import openai
 import os
 import pandasql as ps
 import json
+import re
 
 # configuration
 DEBUG = True
@@ -29,12 +30,16 @@ def ping_pong():
 @app.route("/upload-csv-test", methods=["POST"])
 def upload_csv():
     print("receiving")
-    file = request.files["file"]
+
+    file_list = request.files.getlist('file')
+
+    for data_file in file_list:
+        df = pd.read_csv(BytesIO(data_file.read()))
+        print (df)
+
     prompt = request.form["prompt"]
     
     print (f"This is the prompt: {prompt}")
-
-    df = pd.read_csv(BytesIO(request.files['file'].read()))
 
     task = "Sort out all data by descending order using store sales."
     prompt = creates_message(list(df.columns), task)
@@ -54,6 +59,10 @@ def upload_csv():
         return response
     else:
         return "No file found"
+
+def get_table_name(file_name):
+    return 
+
 
 
 # Function that creates an API message

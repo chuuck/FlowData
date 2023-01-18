@@ -41,8 +41,14 @@ export default {
       onClickChild () {
       
         let formData = new FormData()
-        formData.append("file", this.files)
-        formData.append("prompt", this.prompt)
+
+        console.log(this.files);
+
+        for (let index = 0; index < this.files.length; index++) {
+          formData.append('file', this.files[index])
+        }
+      
+        formData.append('prompt', this.prompt)
         
         axios.post('http://127.0.0.1:8000/upload-csv-test',
           formData, {
@@ -51,8 +57,8 @@ export default {
             }
         }).then((response) => {
 
-          this.query = response.data["query"]
-          let table_object = JSON.parse(response.data["table"]);
+          this.query = response.data['query']
+          let table_object = JSON.parse(response.data['table']);
           this.columns = Object.keys(table_object[0])
           this.people = table_object
           
@@ -60,26 +66,12 @@ export default {
         }, (error) => {
           console.log(error);
         });
-        
-
-        /* Posting a string
-        axios.post('http://127.0.0.1:5000/ping', {
-          firstName: value,
-          lastName: 'Williams'
-        })
-        .then((response) => {
-          console.log(response);
-        }, (error) => {
-          console.log(error);
-        });*/
 
       },
 
       fileChanged(uploaded_files){
 
-        this.files = uploaded_files.target.files[0]
-        
-        
+        this.files = uploaded_files.target.files
       },
 
       update_prompt(prompt){
