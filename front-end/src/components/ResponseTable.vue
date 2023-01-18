@@ -69,7 +69,10 @@ export default {
 
 #response_table{
   margin-top:1vw;
-
+  margin-left: 50%;
+  -ms-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+  margin-bottom: 5vw;
 }
 
 
