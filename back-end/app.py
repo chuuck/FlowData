@@ -20,6 +20,7 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 
 # Dictionary of all tables storing the name of table and pandas dataframe
 table_dict = {}
+# ------ Show me top 5 stores by profit
 
 # sanity check route
 @app.route('/ping', methods=['GET', 'POST'])
@@ -31,7 +32,6 @@ def ping_pong():
 # getting csv file from front-end
 @app.route("/upload-csv-test", methods=["POST"])
 def upload_csv():
-    print("receiving")
 
     file_list = request.files.getlist('file')
 
@@ -41,16 +41,15 @@ def upload_csv():
 
 
     prompt = request.form["prompt"]
-    
-    #print (f"This is the prompt: {prompt}")
 
     openai_prompt = create_message(prompt)
-    print (openai_prompt)
 
     openai_response = api_request(openai_prompt)
     retrieved_query = "SELECT" + openai_response["choices"][0]["text"]
 
-    queried_table = ps.sqldf("SELECT * FROM df ORDER BY Store_Sales DESC")
+    final_query = tables_to_frames(retrieved_query)
+    print (final_query)
+    queried_table = ps.sqldf(final_query)
 
     #print (queried_table.to_json(orient="records"))
 
@@ -61,6 +60,18 @@ def upload_csv():
 
     return (response)
 
+def tables_to_frames(query):
+    print ("replacing")
+
+    for key in table_dict:
+        try:
+            print (table_dict["Stores_Mini"])
+            query = query.replace(key, key.lower())
+            globals()[key.lower()] = table_dict[key]
+        except:
+            print ("No table found!")
+
+    return (query)
 
 
 # Function that creates an API message
