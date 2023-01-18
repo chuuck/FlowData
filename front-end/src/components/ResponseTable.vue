@@ -23,6 +23,9 @@
 </template>
 
 <script>
+
+import Papa from 'papaparse';
+
 export default {
   name: 'ResponseTable',
   props: {
@@ -33,6 +36,26 @@ export default {
   methods: {
     dowload_action(){
       console.log("Downloading table as CSV")
+
+      console.log(this.people)
+
+      // combine columns and rows
+      let data = [this.columns, ...this.people];
+
+      // convert array to csv
+      let csv = Papa.unparse(data);
+
+      // download csv file
+      let blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      let link = document.createElement("a");
+      let url = URL.createObjectURL(blob);
+      link.setAttribute("href", url);
+      link.setAttribute("download", "data.csv");
+      link.style.visibility = 'hidden';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
     }
   },
   data(){
