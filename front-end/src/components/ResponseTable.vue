@@ -4,7 +4,7 @@
     <!-- Table where the response from Codex is displayed -->
     <div id = "table_box">
 
-    <button id = "download_button" type="button" class="btn btn-info" @click="dowload_action">Download</button>
+    <button id = "download_button" type="button" class="btn btn-outline-dark" @click="dowload_action">Download</button>
 
         <table id="response_table" class="table">
           <thead>
@@ -82,11 +82,30 @@ export default {
   
 }
 
-#download_button{
-  
-  margin-left: 100%;
-
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #00b3db;
+    border-color: #285e8e; /*set the color you want here*/
 }
+
+.btn:focus,.btn:active:focus,.btn.active:focus,
+.btn.focus,.btn:active.focus,.btn.active.focus {
+    outline: none;
+}
+
+#download_button{
+
+  margin-left: 100%;
+  background: #fff;
+  color: #000;  
+}
+
+#download_button:hover{
+  background: #6d757d;
+  color: #fff;
+}
+
+
 
 #response_table{
   margin-top:1vw;
