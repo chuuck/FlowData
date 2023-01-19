@@ -97,7 +97,7 @@ export default {
 
   margin-left: 100%;
   background: #fff;
-  color: #000;  
+  color: #626b73;  
 }
 
 #download_button:hover{

@@ -3,6 +3,7 @@
     <div id="intro_rect">
       <h1 id="title">QData</h1>
       <p id="description_text">Whether you're a data scientist, business analyst, or just someone looking to extract insights from your data, QData allows you to ask questions to your data.</p>
+      
       <div id="file_upload_area">
         <input name="elephant" class="form-control" type="file" id="formFileMultiple" ref="uploaded_files" multiple @change="onFileChange">
       </div>
@@ -40,8 +41,8 @@ export default {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  background: rgb(130,106,252);
-  background: linear-gradient(90deg, rgba(130,106,252,1) 0%, rgba(130,106,252,1) 0%, rgba(235,136,252,1) 100%);
+  background: rgb(69,137,255);
+  background: linear-gradient(45deg, rgba(69,137,255,1) 0%, rgba(8,189,186,1) 100%);
   border-radius: 25px;
 }
 
