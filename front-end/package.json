@@ -14,7 +14,10 @@
     "bootstrap-table": "^1.21.2",
     "core-js": "^3.8.3",
     "papaparse": "^5.3.2",
-    "vue": "^3.2.13"
+    "prism-themes": "^1.9.0",
+    "prismjs": "^1.29.0",
+    "vue": "^3.2.13",
+    "vue-prism-component": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

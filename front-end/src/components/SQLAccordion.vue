@@ -9,7 +9,11 @@
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-                <code>{{query}}</code>
+                <pre><code class="language-javascript" language="javascript">
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+                </code></pre>
 
             </div>
             </div>
@@ -18,10 +22,19 @@
 </template>
 
 <script>
+import Prism from "prismjs";
+import "prismjs/themes/prism.css";
+
+
 export default {
   name: 'SQLAccordion',
   props: {
       query: String,
+  },
+  mounted() {
+    window.Prism = window.Prism || {};
+    window.Prism.manual = true;
+    Prism.highlightAll(); // highlight your code on mount
   }
 }
 </script>

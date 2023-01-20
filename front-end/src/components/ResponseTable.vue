@@ -6,8 +6,8 @@
 
     <button id = "download_button" type="button" class="btn btn-outline-dark" @click="dowload_action">Download</button>
 
-        <table id="response_table" class="table">
-          <thead>
+        <table id="response_table" class="table table-striped">
+          <thead id="table_thread">
             <tr>
               <th v-for="column in columns" :key="column">{{ column }}</th>
             </tr>
@@ -105,7 +105,11 @@ export default {
   color: #fff;
 }
 
+#table_thread{
 
+  color: white;
+  background: #33A2DD;
+}
 
 #response_table{
   margin-top:1vw;
