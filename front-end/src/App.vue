@@ -3,8 +3,8 @@
   <div id = "center_layout">
   
     <HelloWorld @change="fileChanged" msg="Welcome to Your Vue.js App"/>
-    <InputPrompt @submitPrompt="update_prompt"/>
-    <SQLAccordion :query="query"/>
+    <InputPrompt ref="input_prompt" @submitPrompt="update_prompt"/>
+    <SQLAccordion ref="accordion" :query="query"/>
     <ResponseTable :people="people" :columns="columns"/>
 
   </div>
@@ -39,7 +39,8 @@ export default {
   },
   methods: {
       onClickChild () {
-      
+        this.$refs.input_prompt.switch_loading_state(true)
+        
         let formData = new FormData()
 
         console.log(this.files);
@@ -50,20 +51,24 @@ export default {
       
         formData.append('prompt', this.prompt)
         
+
         axios.post('http://127.0.0.1:8000/upload-csv-test',
           formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }
         }).then((response) => {
-
+          this.$refs.input_prompt.switch_loading_state(false)
           this.query = response.data['query']
+          this.$refs.accordion.highlight_text()
           let table_object = JSON.parse(response.data['table']);
           this.columns = Object.keys(table_object[0])
           this.people = table_object
           
           
+          
         }, (error) => {
+          this.$refs.input_prompt.switch_loading_state(false)
           console.log(error);
         });
 

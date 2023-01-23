@@ -35,9 +35,18 @@ export default {
       query: String,
   },
   mounted() {
-    window.Prism = window.Prism || {};
-    window.Prism.manual = true;
-    Prism.highlightAll(); // highlight your code on mount
+
+    this.highlight_text();
+  },
+  methods: {
+
+      highlight_text(){
+           // highlight your code on mount
+        console.log("here")
+        window.Prism = window.Prism || {};
+        window.Prism.manual = true;
+        Prism.highlightAll();
+      }
   }
 }
 </script>
