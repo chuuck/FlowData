@@ -48,10 +48,12 @@ export default {
 
     message_changed(file_list_length){
       console.log(file_list_length)
-      if (file_list_length == 1){
+      if (file_list_length == 0){
+        this.message = 'Click here to add CSV files'
+      }else if (file_list_length == 1){
         this.message = file_list_length.toString() + ' file added'
-      }else{
-        this.message = file_list_length.toString() + ' files added'
+      }else {
+         this.message = file_list_length.toString() + ' files added'
       }
     }
 
