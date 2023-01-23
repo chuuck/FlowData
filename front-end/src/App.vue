@@ -34,7 +34,7 @@ export default {
 
       prompt: '',
 
-      query: 'EMPTY'
+      query: 'SELECT * FROM CUSTOMERS'
     }
   },
   methods: {

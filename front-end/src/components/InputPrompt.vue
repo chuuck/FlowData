@@ -36,7 +36,7 @@ export default {
 
 #prompt_form{
 
-  margin-top:125px;
+  margin-top:100px;
   width: 800px;
   left: 50%;
   -ms-transform: translate(-50%, 0%);
@@ -48,10 +48,10 @@ export default {
   
 }
 
+#prompt_input{
 
-#dropdown_prompt{
-
-
+ height: 50px;
 }
+
 
 </style>
