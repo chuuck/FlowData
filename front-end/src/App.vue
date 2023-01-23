@@ -62,8 +62,15 @@ export default {
           this.query = response.data['query']
           this.$refs.accordion.highlight_text()
           let table_object = JSON.parse(response.data['table']);
-          this.columns = Object.keys(table_object[0])
+
+          this.columns = Object.keys(table_object[0]).reduce((obj, key) => {
+            obj[key] = key;
+            return obj;
+          }, {});
+
+          console.log(this.columns)
           this.people = table_object
+          console.log(this.people)
           
           
           

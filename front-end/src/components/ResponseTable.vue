@@ -37,14 +37,14 @@ export default {
     dowload_action(){
       console.log("Downloading table as CSV")
 
-      console.log(this.people)
+      console.log(this.columns)
 
       // combine columns and rows
       let data = [this.columns, ...this.people];
-
+      data = data.slice(1)
       // convert array to csv
       let csv = Papa.unparse(data);
-
+      console.log(csv)
       // download csv file
       let blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
       let link = document.createElement("a");
