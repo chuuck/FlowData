@@ -43,11 +43,12 @@ def upload_csv():
     prompt = request.form["prompt"]
 
     openai_prompt = create_message(prompt)
-
+    print (openai_prompt)
     openai_response = api_request(openai_prompt)
     retrieved_query = "SELECT" + openai_response["choices"][0]["text"]
 
     final_query = tables_to_frames(retrieved_query)
+    print (openai_response)
     print (final_query)
     queried_table = ps.sqldf(final_query)
 
@@ -65,7 +66,6 @@ def tables_to_frames(query):
 
     for key in table_dict:
         try:
-            print (table_dict["Stores_Mini"])
             query = query.replace(key, key.lower())
             globals()[key.lower()] = table_dict[key]
         except:
