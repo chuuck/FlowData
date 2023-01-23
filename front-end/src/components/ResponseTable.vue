@@ -4,7 +4,7 @@
     <!-- Table where the response from Codex is displayed -->
     <div id = "table_box">
 
-    <button id = "download_button" type="button" class="btn btn-outline-dark" @click="dowload_action">Download</button>
+    <button id = "download_button" type="button" class="btn btn-primary" @click="dowload_action">Download</button>
 
         <table id="response_table" class="table table-striped">
           <thead id="table_thread">
@@ -101,7 +101,7 @@ export default {
 }
 
 #download_button:hover{
-  background: #6d757d;
+  background: #33A2DD;
   color: #fff;
 }
 
