@@ -48,10 +48,11 @@ To get started you will need two terminal windows one for Front-End and one for 
 
 ### 3.1. Front-End
 
-To add packages and started the Front-End side you will need ```yarn```. To install it you can use [HomeBrew](https://docs.brew.sh/Installation):
+To add packages and started the Front-End side you will need ```yarn``` and ```node```. To install it you can use [HomeBrew](https://docs.brew.sh/Installation):
 
 ```
 brew install yarn
+brew install node
 ```
 
 Then to set up the project you will have to change directory to the location where you have saved the front-end code and run command:
