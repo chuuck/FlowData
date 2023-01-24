@@ -4,6 +4,19 @@ QData is an open source project which aims to easily query data by letting the u
 
 ## 1. Demos :video_camera:
 
+Here are two demos that showcase the functionality of the web app.
+
+
+<details>
+  <summary>Demo using single file CSV file</summary>
+https://user-images.githubusercontent.com/59098387/214292487-cb7fa63b-28e8-4f86-92a8-6683d3c55ca6.mov
+</details>
+
+<details>
+  <summary>Demo using multiple file CSV file</summary>
+https://user-images.githubusercontent.com/59098387/214292584-ce338da2-cfc6-488b-9559-7e43e3af71ff.mov
+</details>
+
 ## 2. Architecture :building_construction:
 
 As Python has become the most used programming language amongst Data Scientists it was decided to write the back-end of the code in Python, therefore, allowing the majority of the practice to contribute to project if desired. Despite that it was inevatable that an additional language would be used, in this case it being JavaScript (mostly only for front-end parts). There were multiple frameworks and libraries used, so in Figure 1 you will see a rough diagram that showcases all of them. That should help you understand the overall architecture of the app and if you want to learn something new you can easily learn it without understanding other parts.
@@ -26,6 +39,43 @@ As Python has become the most used programming language amongst Data Scientists 
 
 ## 3. Getting Started :rocket:
 
+To get started you will need two terminal windows one for Front-End and one for Back-End.
+
+### 3.1. Front-End
+
+To add packages and started the Front-End side you will need ```yarn```. To install it you can use [HomeBrew](https://docs.brew.sh/Installation):
+
+```
+brew install yarn
+```
+
+Then to set up the project you will have to change directory to the location where you have saved the front-end code and run command:
+
+```
+yarn install
+```
+
+Once that is done, you are ready to launch front-end side: 
+
+```
+yarn serve
+```
+
+### 3.2. Back-End
+
+First you will need an API key from OpenAI which you can get [here](https://beta.openai.com/account/api-keys), and then add it in the back-end/.env file in quotes.
+
+Then you will need to install all the requirements, in the main directory a ```requirements.txt``` has been prepared, so just use command:
+
+```
+pip3 install -r requirements.txt
+```
+
+Then you should be ready to lunch in back-end folder:
+
+```
+python app.py
+```
 
 ## 4. Contributing :pencil2:
 
