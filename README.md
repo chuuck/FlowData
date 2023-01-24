@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img width="400" src="https://github.com/chuuck/QData/blob/main/img/logo.png" />
+  <img src="https://github.com/chuuck/QData/blob/main/img/logo.png" />
 </p>
 
 #    
