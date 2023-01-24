@@ -2,7 +2,9 @@
 
 QData is an open source project which aims to easily query data by letting the user provide the instructions in natural language. For the moment the functionality of the project is limited, as it only displays the results of the data in a tabular form, however, more functionality will be added with a hope that data analysis could be done using just natural language.
 
-## 1. Architecture :building_construction:
+## 1. Demos :video_camera:
+
+## 2. Architecture :building_construction:
 
 As Python has become the most used programming language amongst Data Scientists it was decided to write the back-end of the code in Python, therefore, allowing the majority of the practice to contribute to project if desired. Despite that it was inevatable that an additional language would be used, in this case it being JavaScript (mostly only for front-end parts). There were multiple frameworks and libraries used, so in Figure 1 you will see a rough diagram that showcases all of them. That should help you understand the overall architecture of the app and if you want to learn something new you can easily learn it without understanding other parts.
 
@@ -22,13 +24,25 @@ As Python has become the most used programming language amongst Data Scientists 
 **Pandas** - If you don't know what Pandas library is, something has terribly gone wrong. It allows for data manipulation, but most importantly pandasql allows to query Pandas Dataframes using SQL language, there are some better alternatives that might be quicker, so feel free to explore.
 
 
-## 2. Getting Started :rocket:
+## 3. Getting Started :rocket:
 
 
-## 3. Contributing :pencil2:
+## 4. Contributing :pencil2:
+
+If you would you would like to contribute to the project you are more than welcome to do so here are a few guidlines:
+
+- Bug fixes are the best and always welcome!
+- If you don't understand the code you are changing, don't change it!
+- New features are welcome, however, please include some tests.
+
+If you would like to add additional features here are some ideas:
+
+- Adding a graph section where a graph could be displayed answering the questions in the prompt.
+- Adding a text section where a natural language could be used to answer the prompt using data.
+- Visual improvements to the Front-End side of the app.
+- Alter table once it has been created using prompts.
 
 
+## 5. Feedback :bulb:
 
-## 4. Feedback :bulb:
-
-If you ever have some feedback that you would like to pass on, you can either send it to me directly
+If you ever have some feedback that you would like to pass on, you can either send it to me directly via Slack [@Chuck](https://iki-dt-transformation.slack.com/team/U02XE69UBC) or email girts.bolevics@ibm.com
