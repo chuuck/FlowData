@@ -82,6 +82,8 @@ Then you should be ready to lunch in back-end folder:
 python app.py
 ```
 
+You shuold be good to go at this point, so take a look at the code try to understand it and if you want to contribute go ahead and write some code.
+
 ## 4. Contributing :pencil2:
 
 If you would you would like to contribute to the project you are more than welcome to do so here are a few guidlines:
@@ -97,6 +99,9 @@ If you would like to add additional features here are some ideas:
 - Visual improvements to the Front-End side of the app.
 - Alter table once it has been created using prompts.
 
+<p align="center">
+  <img width="200" src="https://github.com/chuuck/QData/blob/main/img/most_important_photo.jpeg" />
+</p>
 
 ## 5. Feedback :bulb:
 
