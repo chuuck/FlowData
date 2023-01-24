@@ -26,15 +26,13 @@ export default {
     return{
       files: '',
 
-      columns: ['name', 'age', 'address'],
+      columns: [],
 
-      people: [['John Doe', 30, '123 Main St' ],
-              [ 'Jane Smith', 105, '456 Park Ave' ],
-              [ 'Bob Johnson', 35, '789 Elm St' ]],
+      people: [],
 
       prompt: '',
 
-      query: 'SELECT * FROM CUSTOMERS'
+      query: ''
     }
   },
   methods: {

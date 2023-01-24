@@ -1,11 +1,9 @@
 <template>
 
-    <button id="modal_key_button" type="button" class="btn btn-primary">Primary</button>
 
     <div id="intro_rect">
 
       
-
       <h1 id="title">QData</h1>
       <p id="description_text">Whether you're a data scientist, business analyst, or just someone looking to extract insights from your data, QData allows you to ask questions to your data.</p>
       
@@ -65,14 +63,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
- #modal_key_button {
-     margin-top: 10px;
-     margin-right: 20px;
-     position:absolute;
-     top:0;
-     right:0;
- }
 
 #intro_rect{
   height: 370px;

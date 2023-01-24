@@ -43,13 +43,10 @@ def upload_csv():
     prompt = request.form["prompt"]
 
     openai_prompt = create_message(prompt)
-    print (openai_prompt)
     openai_response = api_request(openai_prompt)
     retrieved_query = "SELECT" + openai_response["choices"][0]["text"]
 
     final_query = tables_to_frames(retrieved_query)
-    print (openai_response)
-    print (final_query)
     queried_table = ps.sqldf(final_query)
 
     #print (queried_table.to_json(orient="records"))
@@ -58,6 +55,9 @@ def upload_csv():
         "table": queried_table.to_json(orient="records"),
         "query": retrieved_query
     }
+
+    #Reset stored dataframes
+    table_dict.clear()
 
     return (response)
 
@@ -70,6 +70,7 @@ def tables_to_frames(query):
             globals()[key.lower()] = table_dict[key]
         except:
             print ("No table found!")
+
 
     return (query)
 
