@@ -105,5 +105,3 @@ If you would like to add additional features here are some ideas:
 </p>
 
 ## 5. Feedback :bulb:
-
-If you ever have some feedback that you would like to pass on, you can either send it to me directly via Slack [@Chuck](https://iki-dt-transformation.slack.com/team/U02XE69UBC) or email girts.bolevics@ibm.com
