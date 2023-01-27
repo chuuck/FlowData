@@ -104,4 +104,3 @@ If you would like to add additional features here are some ideas:
   <img width="200" src="https://github.com/chuuck/QData/blob/main/img/most_important_photo.jpeg" />
 </p>
 
-## 5. Feedback :bulb:
