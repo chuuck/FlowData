@@ -98,7 +98,7 @@ If you would like to add additional features here are some ideas:
 - Adding a graph section where a graph could be displayed answering the questions in the prompt.
 - Adding a text section where a natural language could be used to answer the prompt using data.
 - Visual improvements to the Front-End side of the app.
-- Alter table once it has been created using prompts.
+- Alter table once it has been created using prompts
 
 <p align="center">
   <img width="200" src="https://github.com/chuuck/QData/blob/main/img/most_important_photo.jpeg" />
