@@ -46,7 +46,7 @@ As Python has become the most used programming language amongst Data Scientists 
 
 To get started you will need two terminal windows one for Front-End and one for Back-End.
 
-### 3.1. Front-End
+### 3.1. Front-End...
 
 To add packages and started the Front-End side you will need ```yarn``` and ```node```. To install it you can use [HomeBrew](https://docs.brew.sh/Installation):
 
