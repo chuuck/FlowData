@@ -1,11 +1,8 @@
 
-<p align="center">
-  <img src="https://github.com/chuuck/QData/blob/main/img/logo.png" />
-</p>
 
 #    
 
-QData is an open source project which aims to easily query data by letting the user provide instructions in natural language. For the moment the functionality of the project is limited, as it only displays the results of the data in a tabular form, however, more functionality will be added with a hope that data analysis could be done using just natural language.
+FlowData is an open source project which aims to easily query data by letting the user provide instructions in natural language. For the moment the functionality of the project is limited, as it only displays the results of the data in a tabular form, however, more functionality will be added with a hope that data analysis could be done using just natural language.
 
 ## 1. Demos :video_camera:
 
